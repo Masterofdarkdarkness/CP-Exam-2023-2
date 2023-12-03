@@ -1,0 +1,28 @@
+n = int(input())
+biggest_one = 0
+sereja = 0
+dima = 0
+limit = 0
+cards = input().split()
+if len(cards) - cards.count(' ')  != n:
+    print('Error')
+else:
+    for digit in cards:
+        if int(digit) > biggest_one:
+            biggest_one = int(digit)
+        sereja = biggest_one
+        limit = biggest_one
+        cont = 1
+    while cont < n:
+        biggest_one = 0
+        for digit in cards:
+            if int(digit) < limit:
+                if int(digit) > biggest_one:
+                    biggest_one = int(digit)
+        if cont % 2 == 1 or cont == 1:
+            dima += biggest_one
+        else:
+            sereja += biggest_one
+        limit = biggest_one
+        cont += 1
+print(sereja, dima)
